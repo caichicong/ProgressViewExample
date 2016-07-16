@@ -22,3 +22,12 @@ color 圆环颜色
 ```
 
 设置进度
+
+```
+@protocol ProgressViewDelegate <NSObject>
+@required
+-(void)progressViewFinish;
+@end
+```
+
+圆环加载完毕回调方法
