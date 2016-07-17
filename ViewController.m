@@ -30,16 +30,13 @@
 }
 
 -(void)changeProgress {
-    if([self.pview progress] >= 1.0f) {
-        [_timer invalidate];
-    } else {
-        CGFloat progress = [self.pview progress] + 0.05f;
-        [self.pview setProgress:progress];
-    }
+    NSLog(@"progress %f", self.pview.progress);
+   [self.pview addProgress:0.05f];
 }
 
 -(void)progressViewFinish {
     NSLog(@"progress view finish");
+    [_timer invalidate];
 }
 
 

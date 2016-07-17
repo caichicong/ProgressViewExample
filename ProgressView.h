@@ -15,11 +15,11 @@
 
 @interface ProgressView : UIView
 
+@property (readonly, nonatomic) CGFloat progress;
 @property (weak, nonatomic) id<ProgressViewDelegate> delegate;
 
 + (ProgressView *)initWithRadius:(CGFloat)radius side:(CGFloat)side color:(UIColor *)color;
--(void)setProgress:(CGFloat)progress;
--(CGFloat)progress;
+-(void)addProgress:(CGFloat)increment;
 @end
 
 

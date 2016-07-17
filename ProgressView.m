@@ -12,6 +12,7 @@ static const CGFloat kStartAngle = 1.5 * M_PI;
 static const CGFloat kEndAngle = 3.5 * M_PI;
 
 @interface ProgressView()
+
 @property (nonatomic, assign) CGFloat radius;
 @property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) CAShapeLayer *progressCircle;
@@ -56,19 +57,19 @@ static const CGFloat kEndAngle = 3.5 * M_PI;
     return view;
 }
 
--(void)setProgress:(CGFloat)progress {
-    if(progress >= 1.0f) {
+-(void)addProgress:(CGFloat)increment {
+    CGFloat newProgress = self.progressCircle.strokeEnd + increment;
+    if(newProgress >= 1.0f) {
         if(self.delegate) {
             [self.delegate progressViewFinish];
         }
         
     }
-    self.progressCircle.strokeEnd = progress;
+    self.progressCircle.strokeEnd = newProgress;
 }
 
--(CGFloat)progress {
+-(CGFloat)progress{
     return self.progressCircle.strokeEnd;
 }
-
 
 @end
