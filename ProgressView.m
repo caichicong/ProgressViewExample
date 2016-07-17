@@ -36,7 +36,7 @@ static const CGFloat kEndAngle = 3.5 * M_PI;
     
     // 外面的圆圈
     CAShapeLayer *outCircle = [CAShapeLayer layer];
-    outCircle.path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(view.radius, view.radius) radius:radius startAngle:kStartAngle endAngle:kEndAngle clockwise:YES].CGPath;
+    outCircle.path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(view.radius, view.radius) radius:radius-1 startAngle:kStartAngle endAngle:kEndAngle clockwise:YES].CGPath;
     outCircle.fillColor = [UIColor clearColor].CGColor;
     outCircle.strokeColor = color.CGColor;
     outCircle.lineWidth = 1;
@@ -58,7 +58,10 @@ static const CGFloat kEndAngle = 3.5 * M_PI;
 
 -(void)setProgress:(CGFloat)progress {
     if(progress >= 1.0f) {
-        [self.delegate progressViewFinish];
+        if(self.delegate) {
+            [self.delegate progressViewFinish];
+        }
+        
     }
     self.progressCircle.strokeEnd = progress;
 }
