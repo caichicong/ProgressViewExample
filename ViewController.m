@@ -12,6 +12,7 @@
 @interface ViewController () <ProgressViewDelegate>
 @property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) ProgressView *pview;
+@property CGFloat progress;
 @end
 
 @implementation ViewController
@@ -30,8 +31,8 @@
 }
 
 -(void)changeProgress {
-    NSLog(@"progress %f", self.pview.progress);
-   [self.pview addProgress:0.05f];
+    _progress = _progress + 0.05f;
+   [self.pview setProgress:_progress];
 }
 
 -(void)progressViewFinish {

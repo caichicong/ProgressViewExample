@@ -19,7 +19,7 @@
 @property (weak, nonatomic) id<ProgressViewDelegate> delegate;
 
 + (ProgressView *)initWithRadius:(CGFloat)radius side:(CGFloat)side color:(UIColor *)color;
--(void)addProgress:(CGFloat)increment;
+-(void)setProgress:(CGFloat)progress;
 @end
 
 

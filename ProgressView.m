@@ -57,15 +57,18 @@ static const CGFloat kEndAngle = 3.5 * M_PI;
     return view;
 }
 
--(void)addProgress:(CGFloat)increment {
-    CGFloat newProgress = self.progressCircle.strokeEnd + increment;
-    if(newProgress >= 1.0f) {
+-(void)setProgress:(CGFloat)progress {
+    if(progress >= 1.0f) {
         if(self.delegate) {
             [self.delegate progressViewFinish];
         }
         
     }
-    self.progressCircle.strokeEnd = newProgress;
+    
+    [CATransaction begin];
+    // [CATransaction setDisableActions:YES];
+    self.progressCircle.strokeEnd = progress;
+    [CATransaction commit];
 }
 
 -(CGFloat)progress{
