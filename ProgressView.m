@@ -14,7 +14,6 @@ static const CGFloat kEndAngle = 3.5 * M_PI;
 @interface ProgressView()
 
 @property (nonatomic, assign) CGFloat radius;
-@property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) CAShapeLayer *progressCircle;
 @end
 
